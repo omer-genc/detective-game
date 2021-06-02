@@ -4,7 +4,7 @@ Case::Case(){
     //doldur
 }
 
-Case::Case(int id, string name, string story, Person person1, Person person2, Detective detective1, Detective detective2){
+Case::Case(int id, string name, string story, string final, Person person1, Detective detective1, Detective detective2){
     //doldur
 }
 Case::Case(const Case& other){
@@ -29,11 +29,15 @@ void Case::SetStory(string story){
     Story = story;
 }
 
-void Case::SetPerson(int no, Person& person){
-    // karar yapıları kullannarak yaz örnek no 1 olduğunda person1 de değişiklik yap
+void Case::SetFinal(string final){
+    Final = final;
 }
 
-void Case::SetDetective(int no, Detective& detective){
+void Case::SetPerson(Person& person){
+    
+}
+
+void Case::SetDetective(Detective& detective){
     //doldur
 }
 
@@ -49,18 +53,22 @@ string Case::GetStory(){
     return Story;
 }
 
-Person& Case::GetPerson(int no){
-    //karar yapıları kullanarak yaz
+string Case::GetFinal(){
+    return Final;
 }
 
-Detective& Case::GetDedective(int no){
-    // karar yapıları kullanarak yaz
-}
-
-ostream& operator << (ostream& os, const Detective detective){
+Person& Case::GetPerson(){
     //doldur
 }
 
-Detective operator + (Detective detective1, Detective detective2){
+Detective& Case::GetDedective(){
+    // doldur
+}
+
+ostream& operator << (ostream& os, const Case _Case){
+    //doldur
+}
+
+Case operator + (Case _Case1, Case _Case2){
     //doldur
 }

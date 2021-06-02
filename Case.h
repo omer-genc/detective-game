@@ -5,18 +5,17 @@
 #include "Detective.h"
 
 class Case
-{   friend ostream& operator << (ostream& os, const Detective detective);
+{   friend ostream& operator << (ostream& os, const Case _Case);
     private:
         int ID;
         string Name;
         string Story;
+        string Final;
         Person Person1;
-        Person Person2;
         Detective Detective1;
-        Detective Detective2;
     public:
         Case();
-        Case(int id, string name, string story, Person person1, Person person2, Detective detective1, Detective detective2);
+        Case(int id, string name, string story, string final, Person person1, Detective detective1, Detective detective2);
         Case(const Case& other);
         Case& Operator(const Case& other);
         ~Case();
@@ -24,19 +23,21 @@ class Case
         void SetId(int id);
         void SetName(string name);
         void SetStory(string story);
-        void SetPerson(int no, Person& person); // karar yapıları kullannarak yaz örnek no 1 olduğunda person1 de değişiklik yap
-        void SetDetective(int no, Detective& detective);
+        void SetFinal(string final);
+        void SetPerson(Person& person);
+        void SetDetective(Detective& detective);
 
         int GetID();
         string GetName();
         string GetStory();
-        Person& GetPerson(int no); //karar yapıları kullanarak yaz
-        Detective& GetDedective(int no); // karar yapıları kullanarak yaz
+        string GetFinal();
+        Person& GetPerson(); 
+        Detective& GetDedective(); 
 
 
 };
-ostream& operator << (ostream& os, const Detective detective);
-Detective operator + (Detective detective1, Detective detective2);
+ostream& operator << (ostream& os, const Case _Case);
+Case operator + (Case _Case1, Case _Case2);
 
 
 #endif
