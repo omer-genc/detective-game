@@ -6,19 +6,19 @@ Detective::Detective(){
 }
 
 Detective::Detective(int id, string name){
-    // contructor
-
+    Name = name;
+    ID = id;
 }
 
 Detective::Detective(const Detective& other){
-    // copy constructor
-
-
+    Name = other.Name;
+    ID = other.ID;
 }
 
 Detective& Detective::operator = (const Detective& other){
-    //Assigment operator
-
+    Name = other.Name;
+    ID = other.ID;
+    return *this;
 }
 
 Detective::~Detective(){
@@ -41,10 +41,15 @@ string Detective::GetName(){
     return Name;
 }
 
-ostream& operator << (ostream& os, const Detective& detec){
-    //doldur burayı
+ostream& operator << (ostream& os,  const Detective detec){
+    os<<"Name: "<<detec.Name<<endl<<"ID: "<<detec.ID;
+    return os;
 }
 
 Detective operator + (Detective detec1, Detective detec2){
-    //doldur burayı
+    string name = detec1.GetName() + detec2.GetName();
+    int id = detec1.GetID() + detec2.GetID();
+    Detective x(id,name);
+
+    return x;
 }

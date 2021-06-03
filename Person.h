@@ -16,7 +16,7 @@ class Person{
         Person();
         Person(int id, string name,Questions set1, Questions set2, Questions set3, Questions set4, Questions set5);
         Person(const Person& other);
-        Person& opeartor(const Person& other);
+        Person& operator = (const Person& other);
         ~Person();
 
         void SetID(int id);

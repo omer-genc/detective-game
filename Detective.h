@@ -5,6 +5,7 @@ using namespace std;
 
 class Detective
 {
+    friend ostream& operator << (ostream& os, const Detective detec);
     private:
         int ID;
         string Name;
@@ -21,8 +22,10 @@ class Detective
         int GetID();
         string GetName();
 };
-ostream& operator << (ostream& os, const Detective& detec);
+ostream& operator << (ostream& os, const Detective detec);
 Detective operator + (Detective detec1, Detective detec2);
+
+
 
 
 #endif
