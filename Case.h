@@ -15,9 +15,9 @@ class Case
         Detective Detective1;
     public:
         Case();
-        Case(int id, string name, string story, string final, Person person1, Detective detective1, Detective detective2);
+        Case(int id, string name, string story, string final, Person person, Detective detective);
         Case(const Case& other);
-        Case& Operator(const Case& other);
+        Case& operator = (const Case& other);
         ~Case();
 
         void SetId(int id);

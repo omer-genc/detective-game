@@ -1,8 +1,14 @@
 #include "Person.h"
 
 Person::Person(){
+    Questions setptr;
     ID = 0;
-    Name = "Default";
+    Name = "Person";
+    Set1 = setptr;
+    Set2 = setptr;
+    Set3 = setptr;
+    Set4 = setptr;
+    Set5 = setptr;
 }
 
 Person::Person(int id, string name,Questions set1, Questions set2, Questions set3, Questions set4, Questions set5){
@@ -48,7 +54,27 @@ void Person::SetName(string name){
 }
 
 void Person::SetQuestionSet(int no, Questions& set){
-    // soru seti no girilerek yapılacak karar yapıları kullan
+    switch (no)
+    {
+        case 1:
+            Set1 = set;
+            break;
+        case 2:
+            Set2 = set;
+            break;
+        case 3:
+            Set3 = set;
+            break;
+        case 4:
+            Set4 = set;
+            break;
+        case 5:
+            Set5 = set;
+            break;
+        default:
+            cout<<"Hatalı numara girişi"<<endl;
+            break;
+    }
 }
 
 int Person::GetID(){
@@ -59,8 +85,29 @@ string Person::GetName(){
     return Name;
 }
 
-Questions& GetQuestionSet(int no) {
-    //soru seti no girilerek yapılacak karar yapıları kullan
+Questions& Person::GetQuestionSet(int no){
+    switch (no)
+    {
+        case 1:
+            return Set1;
+            break;
+        case 2:
+            return Set2;
+            break;
+        case 3:
+            return Set3;
+            break;
+        case 4:
+            return Set4;
+            break;
+        case 5:
+            return Set5;
+            break;
+        default:
+        cout<<endl<<"Hatalı getquestion no"<<endl;
+            return Set1;
+            break;
+    }
 }
 
 ostream& operator << (ostream& os, const Person person){
@@ -75,5 +122,15 @@ ostream& operator << (ostream& os, const Person person){
 }
 
 Person operator + (Person person1, Person person2){
-    //doldur
+    int id = person1.GetID() + person2.GetID();
+    string name = person1.GetName() + person2.GetName();
+    Questions SET1 = person1.GetQuestionSet(1) + person2.GetQuestionSet(1);
+    Questions SET2 = person1.GetQuestionSet(2) + person2.GetQuestionSet(2);
+    Questions SET3 = person1.GetQuestionSet(3) + person2.GetQuestionSet(3);
+    Questions SET4 = person1.GetQuestionSet(4) + person2.GetQuestionSet(4);
+    Questions SET5 = person1.GetQuestionSet(5) + person2.GetQuestionSet(5);
+
+    Person x(id,name,SET1,SET2,SET3,SET4,SET5);
+
+    return x;
 }

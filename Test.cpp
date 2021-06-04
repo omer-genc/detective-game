@@ -53,6 +53,6 @@ void TestQuestions(){
 }
 
 void TestPerson(){
-    Person p1();
+    Person p1;
     cout<<p1;
 }
