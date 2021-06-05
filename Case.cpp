@@ -99,6 +99,8 @@ ostream& operator << (ostream& os, const Case _Case){
     endl<<_Case.Detective1<<
     endl<<_Case.Person1<<endl;
 
+    return os;
+
 }
 
 Case operator + (Case _Case1, Case _Case2){
@@ -111,6 +113,222 @@ Case operator + (Case _Case1, Case _Case2){
     Case x(id,name,story,final,person,detective);
     return x;
 
+}
+
+void Case::Play(){
+    cout<<Story<<endl;
+    Devam();
+    int puan = 0;
+
+    // Soru soruluyor
+    string secim;
+    cout<<"1. "<<Person1.GetQuestionSet(1).GetQuestion(1)<<
+    endl<<"2. "<<Person1.GetQuestionSet(1).GetQuestion(2)<<
+    endl<<"3. "<<Person1.GetQuestionSet(1).GetQuestion(3)<<
+    endl<<"4. "<<Person1.GetQuestionSet(1).GetQuestion(4)<<endl;
+    Cevap1(1,1,1,1);
+    cout<<Person1.GetQuestionSet(1).GetStory()<<endl;
+    Devam();
+
+    // set2 soruları
+    cout<<"1. "<<Person1.GetQuestionSet(2).GetQuestion(1)<<
+    endl<<"2. "<<Person1.GetQuestionSet(2).GetQuestion(2)<<
+    endl<<"3. "<<Person1.GetQuestionSet(2).GetQuestion(3)<<
+    endl<<"4. "<<Person1.GetQuestionSet(2).GetQuestion(4)<<endl;
+    Cevap2(1,1,1,1);
+    cout<<Person1.GetQuestionSet(2).GetStory()<<endl;
+    Devam();
+
+    //set3 soruları
+    cout<<"1. "<<Person1.GetQuestionSet(3).GetQuestion(1)<<
+    endl<<"2. "<<Person1.GetQuestionSet(3).GetQuestion(2)<<
+    endl<<"3. "<<Person1.GetQuestionSet(3).GetQuestion(3)<<
+    endl<<"4. "<<Person1.GetQuestionSet(3).GetQuestion(4)<<endl;
+    Cevap3(1,1,1,1);
+    cout<<Person1.GetQuestionSet(3).GetStory()<<endl;
+    Devam();
+
+    //set4 soruları
+    cout<<"1. "<<Person1.GetQuestionSet(4).GetQuestion(1)<<
+    endl<<"2. "<<Person1.GetQuestionSet(4).GetQuestion(2)<<
+    endl<<"3. "<<Person1.GetQuestionSet(4).GetQuestion(3)<<
+    endl<<"4. "<<Person1.GetQuestionSet(4).GetQuestion(4)<<endl;
+    Cevap4(1,1,1,1);
+    cout<<Person1.GetQuestionSet(4).GetStory()<<endl;
+    Devam();
+
+    //set5 soruları
+    cout<<"1. "<<Person1.GetQuestionSet(5).GetQuestion(1)<<
+    endl<<"2. "<<Person1.GetQuestionSet(5).GetQuestion(2)<<
+    endl<<"3. "<<Person1.GetQuestionSet(5).GetQuestion(3)<<
+    endl<<"4. "<<Person1.GetQuestionSet(5).GetQuestion(4)<<endl;
+    Cevap5(1,1,1,1);
+    cout<<Person1.GetQuestionSet(5).GetStory()<<endl;
+    Devam();
+
+    cout<<Final;
+   
+}   
+
+void Devam(){
+    string devam;
+    cout<<"devam etmek için herhangi herhangi bir değer giriniz....";
+    cin>>devam;
+}
+
+void Cevap1(int c1, int c2, int c3, int c4)
+{
+    string C1 = "Evet",C2 = "Evet",C3 = "Evet",C4 = "Evet";
+    int puan = 0;
+    string secim;
+
+    if(c1 == 0)
+        C1 = "Hayır";
+    if(c2 == 0)
+        C2 = "Hayır";
+    if(c3 == 0)
+        C3 = "Hayır";
+    if(c4 == 0)
+        C4 = "Hayır";
+
+    while (puan < 3)
+    {
+        cout<<"Lütfen soru seçiniz: ";
+        cin>>secim;
+
+        if(secim =="1")
+            cout<<C1<<endl; puan++;
+        if(secim =="2")
+            cout<<C2<<endl; puan++;
+        if(secim =="3")
+            cout<<C3<<endl; puan++;
+        if(secim =="4")
+            cout<<C4<<endl;
+    }
+}
+
+void Cevap2(int c1, int c2, int c3, int c4)
+{
+    string C1 = "Evet",C2 = "Evet",C3 = "Evet",C4 = "Evet";
+    int puan = 0;
+    string secim;
+
+    if(c1 == 0)
+        C1 = "Hayır";
+    if(c2 == 0)
+        C2 = "Hayır";
+    if(c3 == 0)
+        C3 = "Hayır";
+    if(c4 == 0)
+        C4 = "Hayır";
+
+    while (puan < 3)
+    {
+        cout<<"Lütfen soru seçiniz: ";
+        cin>>secim;
+
+        if(secim =="1")
+            cout<<C1<<endl; 
+        if(secim =="2")
+            cout<<C2<<endl; puan++;
+        if(secim =="3")
+            cout<<C3<<endl; puan++;
+        if(secim =="4")
+            cout<<C4<<endl; puan++;
+    }
+}
+
+void Cevap3(int c1, int c2, int c3, int c4)
+{
+    string C1 = "Evet",C2 = "Evet",C3 = "Evet",C4 = "Evet";
+    int puan = 0;
+    string secim;
+
+    if(c1 == 0)
+        C1 = "Hayır";
+    if(c2 == 0)
+        C2 = "Hayır";
+    if(c3 == 0)
+        C3 = "Hayır";
+    if(c4 == 0)
+        C4 = "Hayır";
+
+    while (puan < 3)
+    {
+        cout<<"Lütfen soru seçiniz: ";
+        cin>>secim;
+
+        if(secim =="1")
+            cout<<C1<<endl; puan++;
+        if(secim =="2")
+            cout<<C2<<endl; puan++;
+        if(secim =="3")
+            cout<<C3<<endl; 
+        if(secim =="4")
+            cout<<C4<<endl; puan++;
+    }
+}
+
+void Cevap4(int c1, int c2, int c3, int c4)
+{
+    string C1 = "Evet",C2 = "Evet",C3 = "Evet",C4 = "Evet";
+    int puan = 0;
+    string secim;
+
+    if(c1 == 0)
+        C1 = "Hayır";
+    if(c2 == 0)
+        C2 = "Hayır";
+    if(c3 == 0)
+        C3 = "Hayır";
+    if(c4 == 0)
+        C4 = "Hayır";
+
+    while (puan < 3)
+    {
+        cout<<"Lütfen soru seçiniz: ";
+        cin>>secim;
+
+        if(secim =="1")
+            cout<<C1<<endl; puan++;
+        if(secim =="2")
+            cout<<C2<<endl; 
+        if(secim =="3")
+            cout<<C3<<endl; puan++;
+        if(secim =="4")
+            cout<<C4<<endl; puan++;
+    }
+}
+
+void Cevap5(int c1, int c2, int c3, int c4)
+{
+    string C1 = "Evet",C2 = "Evet",C3 = "Evet",C4 = "Evet";
+    int puan = 0;
+    string secim;
+
+    if(c1 == 0)
+        C1 = "Hayır";
+    if(c2 == 0)
+        C2 = "Hayır";
+    if(c3 == 0)
+        C3 = "Hayır";
+    if(c4 == 0)
+        C4 = "Hayır";
+
+    while (puan < 3)
+    {
+        cout<<"Lütfen soru seçiniz: ";
+        cin>>secim;
+
+        if(secim =="1")
+            cout<<C1<<endl; 
+        if(secim =="2")
+            cout<<C2<<endl; puan++;
+        if(secim =="3")
+            cout<<C3<<endl; puan++;
+        if(secim =="4")
+            cout<<C4<<endl; puan++;
+    }
 }
 
 //Dosyaya yazma işlemleri uğur kılınç
@@ -132,30 +350,30 @@ void Case::Case_WriteToFile(){  // dosyaya yazma fonksiyonları
     ofstream Case_Write_Person( Name+"_person.dat",ios::app);           // vakaya ait personun ıd ve name için bir txt dosyası oluşturuldu
     Case_Write_Person<<Person1.GetID()<<"_"<<Person1.GetName()<<endl;
     
-        // soru setlerinin story leri için txt dosylarının oluşturulması 
-        ofstream Set1_Story( Name+"_question_set1_story.dat",ios::app);     // Case->Person->Set1->story için txt oluşturuldu
-        Set1_Story<<Person1.GetQuestionSet(1).GetStory()<<endl;
-        
-        ofstream Set2_Story( Name+"_question_set2_story.dat",ios::app);     // Case->Person->Set2->story için txt oluşturuldu
-        Set2_Story<<Person1.GetQuestionSet(2).GetStory()<<endl;
-        
-        ofstream Set3_Story( Name+"_question_set3_story.dat",ios::app);     // Case->Person->Set3->story için txt oluşturuldu
-        Set3_Story<<Person1.GetQuestionSet(3).GetStory()<<endl;
-        
-        ofstream Set4_Story( Name+"_question_set4_story.dat",ios::app);     // Case->Person->Set4->story için txt oluşturuldu
-        Set4_Story<<Person1.GetQuestionSet(4).GetStory()<<endl;
-        
-        ofstream Set5_Story( Name+"_question_set5_story.dat",ios::app);     // Case->Person->Set5->story için txt oluşturuldu
-        Set5_Story<<Person1.GetQuestionSet(5).GetStory()<<endl;       
-        
-        
-        //tüm soruların tek bir txt dosyasına yazılması
-        ofstream all_question( Name+"_quesitons.dat",ios::app);     // Case->Person->Set5->story için txt oluşturuldu
-        for(int set=1; set<6; set++){
-            for(int q=1; q<5; q++){
-            all_question<<Person1.GetQuestionSet(set).GetQuestion(q)<<endl;			
-            }
+    // soru setlerinin story leri için txt dosylarının oluşturulması 
+    ofstream Set1_Story( Name+"_question_set1_story.dat",ios::app);     // Case->Person->Set1->story için txt oluşturuldu
+    Set1_Story<<Person1.GetQuestionSet(1).GetStory()<<endl;
+    
+    ofstream Set2_Story( Name+"_question_set2_story.dat",ios::app);     // Case->Person->Set2->story için txt oluşturuldu
+    Set2_Story<<Person1.GetQuestionSet(2).GetStory()<<endl;
+    
+    ofstream Set3_Story( Name+"_question_set3_story.dat",ios::app);     // Case->Person->Set3->story için txt oluşturuldu
+    Set3_Story<<Person1.GetQuestionSet(3).GetStory()<<endl;
+    
+    ofstream Set4_Story( Name+"_question_set4_story.dat",ios::app);     // Case->Person->Set4->story için txt oluşturuldu
+    Set4_Story<<Person1.GetQuestionSet(4)<<endl;
+    
+    ofstream Set5_Story( Name+"_question_set5_story.dat",ios::app);     // Case->Person->Set5->story için txt oluşturuldu
+    Set5_Story<<Person1.GetQuestionSet(5).GetStory()<<endl;       
+    
+    
+    //tüm soruların tek bir txt dosyasına yazılması
+    ofstream all_question( Name+"_quesitons.dat",ios::app);     // Case->Person->Set5->story için txt oluşturuldu
+    for(int set=1; set<6; set++){
+        for(int q=1; q<5; q++){
+        all_question<<Person1.GetQuestionSet(set).GetQuestion(q)<<endl;			
         }
+    }
     
     // dosyaya yazma : XXX_detective   -> Person
     ofstream Case_Write_Detective( Name+"_detective.dat",ios::app);
@@ -163,7 +381,8 @@ void Case::Case_WriteToFile(){  // dosyaya yazma fonksiyonları
  		
 }
 
-void Case::Case_Read_ID_Name(string name,int case_ID){      // ID ve Name bilgisinı ekrana yazdıracak 
+//Dosyadan okuma işlemleri
+void Case_Read_ID_Name(string name,int case_ID){      // ID ve Name bilgisinı ekrana yazdıracak 
   ifstream dosyaOku("Case_name_list.dat");
   string satir = "";   char id[100];
   if ( dosyaOku.is_open() ){
@@ -176,7 +395,7 @@ void Case::Case_Read_ID_Name(string name,int case_ID){      // ID ve Name bilgis
   }
 }
 
-void Case::Case_Read_Story(string name){        // Story bilgisini ekrana yazdıracak 
+void Case_Read_Story(string name){        // Story bilgisini ekrana yazdıracak 
   ifstream dosyaOku(name+"_story.dat");
   string satir = "";	
   if ( dosyaOku.is_open() ){	
@@ -185,7 +404,7 @@ void Case::Case_Read_Story(string name){        // Story bilgisini ekrana yazdı
   }   
 }
 
-void Case::Case_Read_Final(string name){        // Final bilgisini ekrana yazdıracak 
+void Case_Read_Final(string name){        // Final bilgisini ekrana yazdıracak 
   ifstream dosyaOku(name+"_final.dat");
   string satir = "";	
   if ( dosyaOku.is_open() ){	
@@ -194,7 +413,7 @@ void Case::Case_Read_Final(string name){        // Final bilgisini ekrana yazdı
   }   
 }
 
-void Case::Case_Read_Person(string name){       // Person bilgilerini ekrana yazdıracak 
+void Case_Read_Person(string name){       // Person bilgilerini ekrana yazdıracak 
   ifstream dosyaOku(name+"_person.dat");
   string satir = "";	
   if ( dosyaOku.is_open() ){	
@@ -203,7 +422,7 @@ void Case::Case_Read_Person(string name){       // Person bilgilerini ekrana yaz
   }   
 }
 
-void Case::Case_Read_Set_Story(string name, int set_ID){   // Set numarasına göre setin story sini ekrana yazdıracak
+void Case_Read_Set_Story(string name, int set_ID){   // Set numarasına göre setin story sini ekrana yazdıracak
 
     if(set_ID == 1)
     {
@@ -255,7 +474,7 @@ void Case::Case_Read_Set_Story(string name, int set_ID){   // Set numarasına g�
         cout<<endl<<endl<<"Hatali set numarasi girdiniz!"<<endl<<endl;
 }
 
-void Case::Case_Read_Quesitons(string name, int q_ID){     // Soru numarasına göre(0 ise hepsini) soruyu ekrana yazdıracak
+void Case_Read_Quesitons(string name, int q_ID){     // Soru numarasına göre(0 ise hepsini) soruyu ekrana yazdıracak
   int k=0;
   ifstream dosyaOku(name+"_quesitons.dat");
   string satir = "";
@@ -270,7 +489,7 @@ void Case::Case_Read_Quesitons(string name, int q_ID){     // Soru numarasına g
     dosyaOku.close();
 }
 
-void Case::Case_Read_Detective(string name){    // Detektif bilgilerini ekrana yazdıracak
+void Case_Read_Detective(string name){    // Detektif bilgilerini ekrana yazdıracak
   ifstream dosyaOku(name+"_detective.dat");
   string satir = "";	
   if ( dosyaOku.is_open() ){	

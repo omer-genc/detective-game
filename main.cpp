@@ -3,7 +3,8 @@
 
 int main(){
     
-    TestPerson();
+    Case deneme;
+    deneme.Play();
 
     return 0;
 }

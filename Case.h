@@ -5,6 +5,7 @@
 #include "Detective.h"
 #include<fstream>
 #include<string>
+#include<cstring>
 
 class Case
 {   friend ostream& operator << (ostream& os, const Case _Case);
@@ -36,21 +37,33 @@ class Case
         Person& GetPerson(); 
         Detective& GetDedective();
 
+        void Play();
+
 
         //Dosyaya yazma işlemleri Uğur kılınç
         void Case_WriteToFile();    // Case hakkındaki tüm bilgileri ilgili dosyalara yazacak	
-		void Case_Read_ID_Name(string name,int case_ID);      // ID ve Name bilgisinı ekrana yazdıracak 
-		void Case_Read_Story(string name);        // Story bilgisini ekrana yazdıracak 
-		void Case_Read_Final(string name);        // Final bilgisini ekrana yazdıracak 
-		void Case_Read_Person(string name);       // Person bilgilerini ekrana yazdıracak 
-		void Case_Read_Set_Story(string name, int set_ID);   // Set numarasına göre setin story sini ekrana yazdıracak
-		void Case_Read_Quesitons(string name, int q_ID);     // Soru numarasına göre (0 a hepsini) soruyu ekrana yazdıracak
-		void Case_Read_Detective(string name);    // Detektif bilgilerini ekrana yazdıracak
+		
 
 
 };
 ostream& operator << (ostream& os, const Case _Case);
 Case operator + (Case _Case1, Case _Case2);
+
+void Devam();
+void Cevap1(int c1, int c2, int c3, int c4);
+void Cevap2(int c1, int c2, int c3, int c4);
+void Cevap3(int c1, int c2, int c3, int c4);
+void Cevap4(int c1, int c2, int c3, int c4);
+void Cevap5(int c1, int c2, int c3, int c4);
+
+//Dosyadan okuma işlemleri
+void Case_Read_ID_Name(string name,int case_ID);      // ID ve Name bilgisinı ekrana yazdıracak 
+void Case_Read_Story(string name);        // Story bilgisini ekrana yazdıracak 
+void Case_Read_Final(string name);        // Final bilgisini ekrana yazdıracak 
+void Case_Read_Person(string name);       // Person bilgilerini ekrana yazdıracak 
+void Case_Read_Set_Story(string name, int set_ID);   // Set numarasına göre setin story sini ekrana yazdıracak
+void Case_Read_Quesitons(string name, int q_ID);     // Soru numarasına göre (0 a hepsini) soruyu ekrana yazdıracak
+void Case_Read_Detective(string name);    // Detektif bilgilerini ekrana yazdıracak
 
 
 #endif
