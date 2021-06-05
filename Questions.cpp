@@ -36,9 +36,7 @@ Questions& Questions::operator = (const Questions& other){
     return *this;
 }
 
-Questions::~Questions(){
-    cout<<ID<<" Questions class deleted"<<endl;
-}
+Questions::~Questions(){}
 
 void Questions::SetID(int id){
     ID = id;
