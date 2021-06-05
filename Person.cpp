@@ -41,9 +41,7 @@ Person& Person::operator = (const Person& other){
     Set5 = other.Set5;
     return *this;
 }
-Person::~Person(){
-    cout<<Name<<" Person deleted"<<endl;
-}
+Person::~Person(){}
 
 void Person::SetID(int id){
     ID = id;

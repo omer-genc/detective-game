@@ -20,6 +20,7 @@ Case::Case(int id, string name, string story, string final, Person person, Detec
     Person1 = person;
     Detective1 = detective;
 }
+
 Case::Case(const Case& other){
     ID = other.ID;
     Name = other.Name;
@@ -38,57 +39,32 @@ Case& Case::operator = (const Case& other){
     Detective1 = other.Detective1;
     return *this;
 }
-Case::~Case(){
-    cout<<endl<<Name<<" Deleted"<<endl;
-}
 
-void Case::SetId(int id){
-    ID = id;
-}
+Case::~Case(){}
 
-void Case::SetName(string name){
-    Name = name;
-}
+void Case::SetId(int id){ID = id;}
 
-void Case::SetStory(string story){
-    Story = story;
-}
+void Case::SetName(string name){Name = name;}
 
-void Case::SetFinal(string final){
-    Final = final;
-}
+void Case::SetStory(string story){Story = story;}
 
-void Case::SetPerson(Person& person){
-    Person1 = person;
-}
+void Case::SetFinal(string final){Final = final;}
 
-void Case::SetDetective(Detective& detective){
-    Detective1 = detective;
-}
+void Case::SetPerson(Person& person){Person1 = person;}
 
-int Case::GetID(){
-    return ID;
-}
+void Case::SetDetective(Detective& detective){Detective1 = detective;}
 
-string Case::GetName(){
-    return Name;
-}
+int Case::GetID(){return ID;}
 
-string Case::GetStory(){
-    return Story;
-}
+string Case::GetName(){return Name;}
 
-string Case::GetFinal(){
-    return Final;
-}
+string Case::GetStory(){return Story;}
 
-Person& Case::GetPerson(){
-    return Person1;
-}
+string Case::GetFinal(){return Final;}
 
-Detective& Case::GetDedective(){
-    return Detective1;
-}
+Person& Case::GetPerson(){return Person1;}
+
+Detective& Case::GetDedective(){return Detective1;}
 
 ostream& operator << (ostream& os, const Case _Case){
     os<<"Name: "<<_Case.Name<<
@@ -331,8 +307,8 @@ void Cevap5(int c1, int c2, int c3, int c4)
     }
 }
 
-//Dosyaya yazma işlemleri uğur kılınç
-void Case::Case_WriteToFile(){  // dosyaya yazma fonksiyonları
+
+void Case::Case_WriteToFile(){
 
     //  Case_name_list   -> ID ve Name
     ofstream Case_Write_ID_Name("Case_name_list.dat",ios::app);
@@ -361,7 +337,7 @@ void Case::Case_WriteToFile(){  // dosyaya yazma fonksiyonları
     Set3_Story<<Person1.GetQuestionSet(3).GetStory()<<endl;
     
     ofstream Set4_Story( Name+"_question_set4_story.dat",ios::app);     // Case->Person->Set4->story için txt oluşturuldu
-    Set4_Story<<Person1.GetQuestionSet(4)<<endl;
+    Set4_Story<<Person1.GetQuestionSet(4).GetStory()<<endl;
     
     ofstream Set5_Story( Name+"_question_set5_story.dat",ios::app);     // Case->Person->Set5->story için txt oluşturuldu
     Set5_Story<<Person1.GetQuestionSet(5).GetStory()<<endl;       
@@ -379,121 +355,4 @@ void Case::Case_WriteToFile(){  // dosyaya yazma fonksiyonları
     ofstream Case_Write_Detective( Name+"_detective.dat",ios::app);
     Case_Write_Detective<<Detective1.GetID()<<"_"<<Detective1.GetName()<<endl;   // arada _ var istersen boşluk yapabilirsin sana bırakıyorum
  		
-}
-
-//Dosyadan okuma işlemleri
-void Case_Read_ID_Name(string name,int case_ID){      // ID ve Name bilgisinı ekrana yazdıracak 
-  ifstream dosyaOku("Case_name_list.dat");
-  string satir = "";   char id[100];
-  if ( dosyaOku.is_open() ){
-    while ( getline(dosyaOku, satir) ){
- 	  strcpy(id, satir.c_str());	  	   	   	     
-	  if( id[0] == case_ID )
-        cout << satir << endl;	      
-	}
-    dosyaOku.close();
-  }
-}
-
-void Case_Read_Story(string name){        // Story bilgisini ekrana yazdıracak 
-  ifstream dosyaOku(name+"_story.dat");
-  string satir = "";	
-  if ( dosyaOku.is_open() ){	
-    while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-    dosyaOku.close();
-  }   
-}
-
-void Case_Read_Final(string name){        // Final bilgisini ekrana yazdıracak 
-  ifstream dosyaOku(name+"_final.dat");
-  string satir = "";	
-  if ( dosyaOku.is_open() ){	
-    while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-    dosyaOku.close();
-  }   
-}
-
-void Case_Read_Person(string name){       // Person bilgilerini ekrana yazdıracak 
-  ifstream dosyaOku(name+"_person.dat");
-  string satir = "";	
-  if ( dosyaOku.is_open() ){	
-    while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-    dosyaOku.close();
-  }   
-}
-
-void Case_Read_Set_Story(string name, int set_ID){   // Set numarasına göre setin story sini ekrana yazdıracak
-
-    if(set_ID == 1)
-    {
-        ifstream dosyaOku(name+"_question_set1_story.dat");
-        string satir = "";
-
-        if ( dosyaOku.is_open() ){	
-            while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-            dosyaOku.close();
-        }        
-    }
-    else if(set_ID == 2)
-    {
-        ifstream dosyaOku(name+"_question_set2_story.dat");
-        string satir = "";	
-        if ( dosyaOku.is_open() ){	
-            while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-            dosyaOku.close();
-        }   
-    }
-    else if (set_ID == 3)
-    {
-        ifstream dosyaOku(name+"_question_set3_story.dat");
-        string satir = "";	
-        if ( dosyaOku.is_open() ){	
-            while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-            dosyaOku.close();
-        }   
-    }
-    else if (set_ID == 4)
-    {
-        ifstream dosyaOku(name+"_question_set4_story.dat");
-        string satir = "";	
-        if ( dosyaOku.is_open() ){	
-            while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-            dosyaOku.close();
-        }   
-    }
-    else if(set_ID == 5)
-    {
-        ifstream dosyaOku(name+"_question_set5_story.dat");
-        string satir = "";	
-        if ( dosyaOku.is_open() ){	
-            while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-            dosyaOku.close();
-        }
-    }
-    else
-        cout<<endl<<endl<<"Hatali set numarasi girdiniz!"<<endl<<endl;
-}
-
-void Case_Read_Quesitons(string name, int q_ID){     // Soru numarasına göre(0 ise hepsini) soruyu ekrana yazdıracak
-  int k=0;
-  ifstream dosyaOku(name+"_quesitons.dat");
-  string satir = "";
-  if ( dosyaOku.is_open() ){
-      while ( getline(dosyaOku, satir) ){
-		k++;
-    	if(k==q_ID)  cout << satir << endl;
-		if(0==q_ID)  cout << satir << endl; 	  
-    }
-  }
-    
-    dosyaOku.close();
-}
-
-void Case_Read_Detective(string name){    // Detektif bilgilerini ekrana yazdıracak
-  ifstream dosyaOku(name+"_detective.dat");
-  string satir = "";	
-  if ( dosyaOku.is_open() ){	
-    while ( getline(dosyaOku, satir) ){ cout << satir << endl; }
-    dosyaOku.close();
-  }   
 }

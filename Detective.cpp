@@ -21,9 +21,7 @@ Detective& Detective::operator = (const Detective& other){
     return *this;
 }
 
-Detective::~Detective(){
-    cout<<Name<<" Detective deleted"<<endl;
-}
+Detective::~Detective(){}
 
 void Detective::SetID(int id){
     ID = id;
