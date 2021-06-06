@@ -102,7 +102,7 @@ void Case::Play(){
     endl<<"2. "<<Person1.GetQuestionSet(1).GetQuestion(2)<<
     endl<<"3. "<<Person1.GetQuestionSet(1).GetQuestion(3)<<
     endl<<"4. "<<Person1.GetQuestionSet(1).GetQuestion(4)<<endl;
-    Cevap1(1,1,1,1);
+    Cevap1(1,1,0,1);
     cout<<Person1.GetQuestionSet(1).GetStory()<<endl;
     Devam();
 
@@ -111,7 +111,7 @@ void Case::Play(){
     endl<<"2. "<<Person1.GetQuestionSet(2).GetQuestion(2)<<
     endl<<"3. "<<Person1.GetQuestionSet(2).GetQuestion(3)<<
     endl<<"4. "<<Person1.GetQuestionSet(2).GetQuestion(4)<<endl;
-    Cevap2(1,1,1,1);
+    Cevap2(1,0,0,1);
     cout<<Person1.GetQuestionSet(2).GetStory()<<endl;
     Devam();
 
@@ -120,7 +120,7 @@ void Case::Play(){
     endl<<"2. "<<Person1.GetQuestionSet(3).GetQuestion(2)<<
     endl<<"3. "<<Person1.GetQuestionSet(3).GetQuestion(3)<<
     endl<<"4. "<<Person1.GetQuestionSet(3).GetQuestion(4)<<endl;
-    Cevap3(1,1,1,1);
+    Cevap3(0,0,1,1);
     cout<<Person1.GetQuestionSet(3).GetStory()<<endl;
     Devam();
 
@@ -129,7 +129,7 @@ void Case::Play(){
     endl<<"2. "<<Person1.GetQuestionSet(4).GetQuestion(2)<<
     endl<<"3. "<<Person1.GetQuestionSet(4).GetQuestion(3)<<
     endl<<"4. "<<Person1.GetQuestionSet(4).GetQuestion(4)<<endl;
-    Cevap4(1,1,1,1);
+    Cevap4(1,0,1,1);
     cout<<Person1.GetQuestionSet(4).GetStory()<<endl;
     Devam();
 
@@ -167,25 +167,26 @@ void Cevap1(int c1, int c2, int c3, int c4)
     if(c4 == 0)
         C4 = "Hayır";
 
-    while (puan < 3)
+    while (puan < 4)
     {
         cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
         if(secim =="1"){
-            cout<<C1<<endl; 
-            puan++;
+            cout<<C1<<endl;
+            puan++; 
         }
         else if(secim =="2"){
             cout<<C2<<endl; 
-            puan++;
         }
         else if(secim =="3"){
             cout<<C3<<endl; 
             puan++;
         }
-        else if(secim =="4")
+        else if(secim =="4"){
             cout<<C4<<endl;
+            puan++;
+        }
         else 
             cout<<"Hatalı secim.. "<<endl;
     }
@@ -211,12 +212,13 @@ void Cevap2(int c1, int c2, int c3, int c4)
         cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
-        if(secim =="1")
+        if(secim =="1"){
             cout<<C1<<endl;
-
+            puan++;
+        }
         else if(secim =="2"){
             cout<<C2<<endl; 
-            puan++;
+            
         }
 
         else if(secim =="3"){
@@ -261,10 +263,12 @@ void Cevap3(int c1, int c2, int c3, int c4)
         }
         else if(secim =="2"){
             cout<<C2<<endl; 
-            puan++;
+            
         }
-        else if(secim =="3")
-            cout<<C3<<endl; 
+        else if(secim =="3"){
+            cout<<C3<<endl;
+            puan++;
+        } 
         else if(secim =="4"){
             cout<<C4<<endl; 
             puan++;
@@ -289,7 +293,7 @@ void Cevap4(int c1, int c2, int c3, int c4)
     if(c4 == 0)
         C4 = "Hayır";
 
-    while (puan < 3)
+    while (puan < 4)
     {
         cout<<"Lutfen soru seciniz: ";
         cin>>secim;
@@ -298,8 +302,10 @@ void Cevap4(int c1, int c2, int c3, int c4)
             cout<<C1<<endl; 
             puan++;
         }
-        else if(secim =="2")
+        else if(secim =="2"){
             cout<<C2<<endl; 
+            puan++;
+        }
         else if(secim =="3"){
             cout<<C3<<endl; 
             puan++;
@@ -333,8 +339,10 @@ void Cevap5(int c1, int c2, int c3, int c4)
         cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
-        if(secim =="1")
-            cout<<C1<<endl; 
+        if(secim =="1"){
+            cout<<C1<<endl;
+            puan++;
+        } 
         else if(secim =="2"){
             cout<<C2<<endl; 
             puan++;
@@ -345,7 +353,7 @@ void Cevap5(int c1, int c2, int c3, int c4)
         }
         else if(secim =="4"){
             cout<<C4<<endl; 
-            puan++;
+            
         }
         else 
             cout<<"Hatalı seçim.."<<endl;
