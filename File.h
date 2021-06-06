@@ -23,7 +23,7 @@ int getPersonID(string metin);
 string getPersonName(string metin);
 
 string Case_Read_Set_Story(string name, int set_ID);
-string Case_Read_Quesitons(string name, int q_ID);
+string Case_Read_Quesitons(const string name, int q_ID);
 
 void readCase(Case &senaryo);
 #endif

@@ -148,7 +148,7 @@ void Case::Play(){
 
 void Devam(){
     string devam;
-    cout<<"devam etmek için herhangi herhangi bir değer giriniz....";
+    cout<<"devam etmek icin herhangi bir deger giriniz....";
     cin>>devam;
 }
 
@@ -169,17 +169,25 @@ void Cevap1(int c1, int c2, int c3, int c4)
 
     while (puan < 3)
     {
-        cout<<"Lütfen soru seçiniz: ";
+        cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
-        if(secim =="1")
-            cout<<C1<<endl; puan++;
-        if(secim =="2")
-            cout<<C2<<endl; puan++;
-        if(secim =="3")
-            cout<<C3<<endl; puan++;
-        if(secim =="4")
+        if(secim =="1"){
+            cout<<C1<<endl; 
+            puan++;
+        }
+        else if(secim =="2"){
+            cout<<C2<<endl; 
+            puan++;
+        }
+        else if(secim =="3"){
+            cout<<C3<<endl; 
+            puan++;
+        }
+        else if(secim =="4")
             cout<<C4<<endl;
+        else 
+            cout<<"Hatalı secim.. "<<endl;
     }
 }
 
@@ -200,17 +208,30 @@ void Cevap2(int c1, int c2, int c3, int c4)
 
     while (puan < 3)
     {
-        cout<<"Lütfen soru seçiniz: ";
+        cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
         if(secim =="1")
-            cout<<C1<<endl; 
-        if(secim =="2")
-            cout<<C2<<endl; puan++;
-        if(secim =="3")
-            cout<<C3<<endl; puan++;
-        if(secim =="4")
-            cout<<C4<<endl; puan++;
+            cout<<C1<<endl;
+
+        else if(secim =="2"){
+            cout<<C2<<endl; 
+            puan++;
+        }
+
+        else if(secim =="3"){
+            cout<<C3<<endl; 
+            puan++;
+
+        }
+
+        else if(secim =="4"){
+            cout<<C4<<endl; 
+            puan++;
+
+        }
+        else 
+            cout<<"Hatalı seçim.."<<endl;
     }
 }
 
@@ -231,17 +252,25 @@ void Cevap3(int c1, int c2, int c3, int c4)
 
     while (puan < 3)
     {
-        cout<<"Lütfen soru seçiniz: ";
+        cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
-        if(secim =="1")
-            cout<<C1<<endl; puan++;
-        if(secim =="2")
-            cout<<C2<<endl; puan++;
-        if(secim =="3")
+        if(secim =="1"){
+            cout<<C1<<endl; 
+            puan++;
+        }
+        else if(secim =="2"){
+            cout<<C2<<endl; 
+            puan++;
+        }
+        else if(secim =="3")
             cout<<C3<<endl; 
-        if(secim =="4")
-            cout<<C4<<endl; puan++;
+        else if(secim =="4"){
+            cout<<C4<<endl; 
+            puan++;
+        }
+        else 
+            cout<<"Hatalı seçim.."<<endl;
     }
 }
 
@@ -262,17 +291,25 @@ void Cevap4(int c1, int c2, int c3, int c4)
 
     while (puan < 3)
     {
-        cout<<"Lütfen soru seçiniz: ";
+        cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
-        if(secim =="1")
-            cout<<C1<<endl; puan++;
-        if(secim =="2")
+        if(secim =="1"){
+            cout<<C1<<endl; 
+            puan++;
+        }
+        else if(secim =="2")
             cout<<C2<<endl; 
-        if(secim =="3")
-            cout<<C3<<endl; puan++;
-        if(secim =="4")
-            cout<<C4<<endl; puan++;
+        else if(secim =="3"){
+            cout<<C3<<endl; 
+            puan++;
+        }
+        else if(secim =="4"){
+            cout<<C4<<endl; 
+            puan++;
+        }
+        else    
+            cout<<"Hatalı giriş..."<<endl;
     }
 }
 
@@ -293,17 +330,25 @@ void Cevap5(int c1, int c2, int c3, int c4)
 
     while (puan < 3)
     {
-        cout<<"Lütfen soru seçiniz: ";
+        cout<<"Lutfen soru seciniz: ";
         cin>>secim;
 
         if(secim =="1")
             cout<<C1<<endl; 
-        if(secim =="2")
-            cout<<C2<<endl; puan++;
-        if(secim =="3")
-            cout<<C3<<endl; puan++;
-        if(secim =="4")
-            cout<<C4<<endl; puan++;
+        else if(secim =="2"){
+            cout<<C2<<endl; 
+            puan++;
+        }
+        else if(secim =="3"){
+            cout<<C3<<endl; 
+            puan++;
+        }
+        else if(secim =="4"){
+            cout<<C4<<endl; 
+            puan++;
+        }
+        else 
+            cout<<"Hatalı seçim.."<<endl;
     }
 }
 
@@ -355,4 +400,143 @@ void Case::Case_WriteToFile(){
     ofstream Case_Write_Detective( Name+"_detective.dat",ios::app);
     Case_Write_Detective<<Detective1.GetID()<<"_"<<Detective1.GetName()<<endl;   // arada _ var istersen boşluk yapabilirsin sana bırakıyorum
  		
+}
+
+void caseDuzenle(Case &Senaryo){
+    string caseName;
+    int caseID;
+
+    cout<<"Senaryo ismi gir: ";
+    cin>>caseName;
+    cout<<"Senaryo ID gir: ";
+    cin>>caseID;
+    
+    Senaryo.SetName(caseName);
+    Senaryo.SetId(caseID);
+
+    string caseStory;
+    string caseFinal;
+
+    cout<<"Senaryo hikayesi gir: ";
+    cin>>caseStory;
+    cout<<"Senaryo finali gir: ";
+    cin>>caseFinal;
+
+    Senaryo.SetStory(caseStory);
+    Senaryo.SetFinal(caseFinal);
+
+    
+    string detectiveName;
+    int detectiveID;
+    cout<<"Dedektif ismi gir: ";
+    cin>>detectiveName;
+    cout<<"Dedektif ID gir: ";
+    cin>>detectiveID;
+
+    //Detektif eklendi
+    Detective other(detectiveID,detectiveName);
+    Senaryo.SetDetective(other);
+
+    //Questions story okuma
+    
+    string questionStory1;
+    string questionStory2;
+    string questionStory3;
+    string questionStory4;
+    string questionStory5;
+
+    cout<<"Soru seti 1 için story gir";
+    cin>>questionStory1;
+    cout<<"Soru seti 2 için story gir";
+    cin>>questionStory2;
+    cout<<"Soru seti 3 için story gir";
+    cin>>questionStory3;
+    cout<<"Soru seti 4 için story gir";
+    cin>>questionStory4;
+    cout<<"Soru seti 5 için story gir";
+    cin>>questionStory5;
+    
+
+    Questions set1;
+    Questions set2;
+    Questions set3;
+    Questions set4;
+    Questions set5;
+
+    //Soru seti id leri girildi
+    set1.SetID(1);
+    set2.SetID(2);
+    set3.SetID(3);
+    set4.SetID(4);
+    set5.SetID(5);
+
+    //soru seti storyleri girildi
+    set1.SetStory(questionStory1);
+    set2.SetStory(questionStory2);
+    set3.SetStory(questionStory3);
+    set4.SetStory(questionStory4);
+
+    //soru setlerine sorular girildi
+    string soru;
+    cout<<"Soru seti 1"<<endl;
+    for (int i = 1; i < 5; i++)
+    {
+        cout<<"Soru " << i << " giriniz: ";
+        cin>>soru;
+        set1.SetQuestion(i,soru);
+    }
+
+    cout<<"Soru seti 2"<<endl;
+    for (int i = 1; i < 5; i++)
+    {
+        cout<<"Soru " << i << " giriniz: ";
+        cin>>soru;
+        set2.SetQuestion(i,soru);
+    }
+
+    cout<<"Soru seti 3"<<endl;
+    for (int i = 1; i < 5; i++)
+    {
+        cout<<"Soru " << i << " giriniz: ";
+        cin>>soru;
+        set3.SetQuestion(i,soru);
+    }
+
+    cout<<"Soru seti 4"<<endl;
+    for (int i = 1; i < 5; i++)
+    {
+        cout<<"Soru " << i << " giriniz: ";
+        cin>>soru;
+        set4.SetQuestion(i,soru);
+    }
+
+    cout<<"Soru seti 5"<<endl;
+    for (int i = 1; i < 5; i++)
+    {
+        cout<<"Soru " << i << " giriniz: ";
+        cin>>soru;
+        set5.SetQuestion(i,soru);
+    }
+    
+
+    string personName;
+    int personID;
+    Person person;
+    cout<<"Person ID gir: ";
+    cin>>personID;
+    cout<<"Person Name gir: ";
+    cin>>personName;
+
+    //Person verileri girildi
+    person.SetID(personID);
+    person.SetName(personName);
+    //persona sorular eklendi
+    person.SetQuestionSet(1,set1);
+    person.SetQuestionSet(2,set2);
+    person.SetQuestionSet(3,set3);
+    person.SetQuestionSet(4,set4);
+    person.SetQuestionSet(5,set5);
+
+    // person eklendi
+    Senaryo.SetPerson(person);
 }

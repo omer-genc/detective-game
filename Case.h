@@ -41,7 +41,7 @@ class Case
 
 
         //Dosyaya yazma işlemleri Uğur kılınç
-        void Case_WriteToFile();    // Case hakkındaki tüm bilgileri ilgili dosyalara yazacak	
+        void Case_WriteToFile();
 		
 
 
@@ -55,5 +55,7 @@ void Cevap2(int c1, int c2, int c3, int c4);
 void Cevap3(int c1, int c2, int c3, int c4);
 void Cevap4(int c1, int c2, int c3, int c4);
 void Cevap5(int c1, int c2, int c3, int c4);
+
+void caseDuzenle(Case& other);
 
 #endif

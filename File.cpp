@@ -11,7 +11,7 @@ string Case_Read_ID_Name(){
         
         dosyaOku.close();
     } 
-    cout<<"Seneryo seçmek için ID giriniz: ";
+    cout<<"Senaryo secmek icin ID giriniz: ";
     
     cin>>ID;
     ifstream dosyaOku2("Case_name_list.dat");
@@ -33,24 +33,17 @@ string Case_Read_ID_Name(){
 }
 
 int getCaseID(string metin){
-    char arry[100];
-    strcpy(arry,metin.c_str());
-    return arry[0] - '0';
+    string s = metin;
+    string delimiter = "_";
+    string token = s.substr(0,s.find(delimiter));
+
+    return atoi(token.c_str());
 }
 
 string getCaseName(string metin){
-    char arry[100];
-    int i = 2;
-    string name;
-    strcpy(arry,metin.c_str());
-    
-    while (arry[i] != '\0')
-    {
-        name += arry[i];
-        i++;
-    }
-
-    return name;
+    string delimiter = "_";
+    string x = metin.erase(0, metin.find(delimiter) + delimiter.length());
+    return x;
 }
 
 
@@ -86,24 +79,17 @@ string Case_Read_Detective(string name){
 }
 
 int getDetectiveID(string metin){
-    char arry[100];
-    strcpy(arry,metin.c_str());
-    return arry[0] - '0';
+    string s = metin;
+    string delimiter = "_";
+    string token = s.substr(0,s.find(delimiter));
+
+    return atoi(token.c_str());
 }
 
 string getDetectiveName(string metin){
-    char arry[100];
-    int i = 2;
-    string name;
-    strcpy(arry,metin.c_str());
-    
-    while (arry[i] != '\0')
-    {
-        name += arry[i];
-        i++;
-    }
-
-    return name;
+    string delimiter = "_";
+    string x = metin.erase(0, metin.find(delimiter) + delimiter.length());
+    return x;
 }
 
 
@@ -199,15 +185,17 @@ string Case_Read_Set_Story(string name, int set_ID){
     return donder;
 }
 
-string Case_Read_Quesitons(string name, int q_ID){
+string Case_Read_Quesitons(const string name, int q_ID){
     int k=1;
-    ifstream dosyaOku(name+"_quesitons.dat");
+    ifstream dosyaOku;
+    dosyaOku.open(name);
     string satir = "";
     string donder = "HATALI SECIM";
     if ( dosyaOku.is_open() ){
         while ( getline(dosyaOku, satir) ){
-            if(k==q_ID)
-                donder = satir;
+            if(k==q_ID){
+                donder = satir;               
+            }
 
             k++; 	  
         }
@@ -264,21 +252,30 @@ void readCase(Case &Senaryo){
     set4.SetStory(questionStory4);
 
     //soru setlerine sorular girildi
-    string soru;
-    for (int i = 1; i < 21; i++)
-    {
-        soru = Case_Read_Quesitons(caseName,i);
-        if (i<5)
-            set1.SetQuestion(i,soru);
-        else if(i<9)
-            set2.SetQuestion(i-4,soru);
-        else if(i<13)
-            set3.SetQuestion(i-8,soru);
-        else if(i<17)
-            set4.SetQuestion(i-12,soru);
-        else if(i<21)
-            set5.SetQuestion(i-16,soru);
+    int k = 1;
+    string adres = caseName + "_questions.dat";
+    ifstream dosyaOku(adres);
+    string satir;
+    if ( dosyaOku.is_open() ){
+        while ( getline(dosyaOku, satir) ){
+            if(k<=4)
+                set1.SetQuestion(k,satir);
+            else if(k<=8)
+                set2.SetQuestion(k-4,satir);        
+            else if(k<=12)
+                set2.SetQuestion(k-8,satir);        
+            else if(k<=16)
+                set2.SetQuestion(k-12,satir);        
+            else if(k<=20)
+                set2.SetQuestion(k-16,satir);        
+            
+            cout<<satir<<endl;
+
+            k++; 	  
+        }
     }
+    dosyaOku.close();
+  
 
     string personMetin = Case_Read_Person(caseName);
     string PersonName = getPersonName(personMetin);
