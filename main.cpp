@@ -1,4 +1,5 @@
 #include "File.h"
+#include "Exception.h"
 
 int main(){
 
@@ -52,39 +53,53 @@ int main(){
     Case *olay = new Case;
     Case oyun();
     int secim;
-    bool kapi = true;
-    while (kapi)
+    bool flag = true;
+
+    fotograf.Case_WriteToFile();
+    do
     {
-        cout<<"1. Yazar modu"<<
-        endl<<"2. Kayitli oyunlar"<<
-        endl<<"3. Yüklü oyun"<<
-        endl<<"4. Cikis"<<
-        endl<<"Secim: ";
-        cin>>secim;
-
-        switch (secim)
+        try
         {
-            case 1:
-                caseDuzenle(*olay);
-                olay->Case_WriteToFile();
-                break;
-            case 2:
-                readCase(*olay);
-                olay->Play();
-                break;
-            case 3:
-                fotograf.Play();
-                break;
-            case 4:
-                kapi = false;
-                break;
-            default:
-                cout<<"Hatalı giriş..."<<endl;
-                break;
-        }
+            cout<<"1. Yazar modu"<<
+            endl<<"2. Kayitli oyunlar"<<
+            endl<<"3. Yüklü oyun"<<
+            endl<<"4. Cikis"<<
+            endl<<"Secim: ";
+            cin>>secim;
 
+            switch (secim)
+            {
+                case 1:
+                    caseDuzenle(*olay);
+                    olay->Case_WriteToFile();
+                    break;
+                case 2:
+                    readCase(*olay);
+                    olay->Play();
+                    break;
+                case 3:
+                    fotograf.Play();
+                    break;
+                case 4:
+                    flag = false;
+                    break;
+                default:
+                    throw Exception("seçim 1 ile 4 arasinda olmali");
+                    break;
+            }
+        }       
+        catch(Exception obj)
+        {
+            cout<< obj.getMessage()<<endl<<endl;
+            cin.clear();
+            cin.ignore(100, '\n');
+        }// end catch
+        
+        
+    } while (flag);
+    
 
-    }
+    
 
     return 0;
 }
