@@ -55,7 +55,6 @@ int main(){
     int secim;
     bool flag = true;
 
-    fotograf.Case_WriteToFile();
     do
     {
         try
@@ -98,6 +97,7 @@ int main(){
         
     } while (flag);
     
+    delete olay;
 
     
 
